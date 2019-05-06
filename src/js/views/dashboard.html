@@ -1,0 +1,150 @@
+<!--
+ Copyright (c) 2014, 2019, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>POS CX-unity Widget </h1>
+<!--  <div id="parentContainer" style="padding:10px">
+      <oj-file-picker id="picker" accept="[[acceptArr]]" selection-mode="[[multipleStr]]" on-oj-select='[[selectListener]]'>
+      </oj-file-picker>
+      <div>
+        <oj-text-area id="text-area" data-bind="value: value()"> 
+          </oj-text-area>      
+     </div>
+      <div>
+        <oj-button id='button1' on-oj-action='[[buttonClick]]'>Button 1</oj-button>
+      </div>
+-->
+
+  <div>
+      <div id="container">
+          <div class="demo-flex-display oj-flex-items-pad">
+              <h2>Cross Customer Engagement Widget</h2>
+              <br>
+            <div class="oj-flex">
+              <div class="oj-flex-item">
+                  <oj-chart id="lineAreaChart" type="lineWithArea" selection-mode="multiple" series="[[areaSeriesValuea]]"
+                  groups="[[areaGroupsValuea]]" animation-on-display="auto" animation-on-data-change="auto"
+                  orientation="[[orientationValue]]" stack="[[stackValue]]" y-axis="[[yAxisData]]"
+                  x-axis="[[xAxisData]]" style="width:70%;height:250px;float:left;" legend.rendered="off">
+               </oj-chart>
+              </div>
+              <div class="oj-flex-item"> 
+                <oj-chart id="lineAreaChart" type="lineWithArea" selection-mode="multiple" series="[[areaSeriesValuea]]"
+                groups="[[areaGroupsValuea]]" animation-on-display="auto" animation-on-data-change="auto"
+                orientation="[[orientationValue]]" stack="[[stackValue]]" y-axis="[[yAxisData]]"
+                x-axis="[[xAxisData]]" style="width:70%;height:250px;float:left;" legend.rendered="off">
+              </oj-chart>
+              <br>
+              <br>
+            </div>
+              <div class="oj-flex-item">
+              </div>
+            </div>
+            
+            <div class="oj-flex">
+              <div class="oj-flex-item">
+                  <h2>Engaged Customers by Channel Widget</h2>
+                  <br>  
+                <oj-chart id="areaChart" type="area" series="[[areaSeriesValue]]"
+               groups="[[areaGroupsValue]]" stack="on"
+               y-axis.min="0" y-axis.max="1" y-axis.tick-label.converter="[[yConverter]]"
+               animation-on-display="auto" animation-on-data-change="auto"
+               value-formats.y.converter="[[yConverter]]" style="width:100%;height:350px;">
+          </oj-chart>  
+              </div>
+            </div>
+            <div class="oj-flex">
+              <div class="oj-flex-item">
+                <h2>Engagement by Recency and Frequency Widget</h2>
+                <br>
+                
+                <div id='treemap-container'>
+                    <oj-treemap id="treemap1" animation-on-display="auto" animation-on-data-change="auto"
+                      nodes="[[nodeValues]]" style="max-width:800px;width:100%; height:600px;">
+                    </oj-treemap>
+                </div>
+               </div>
+              </div>
+              <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <h2>Engagement By Segment Widget</h2>
+                    <br>
+                    <oj-chart
+                          type="bubble" series="[[bubbleSeriesValue]]" groups="[[bubbleGroupsValue]]" 
+                          animation-on-display="auto" animation-on-data-change="auto" hover-behavior="dim"
+                          style="max-width:500px;width:100%;height:350px;">
+                    </oj-chart>
+                </div>
+              </div>
+              <div class="oj-flex">
+                <div class="oj-flex-item">
+                  <h2>Abandonment Throughout Journey Widget </h2>
+                  <br>
+                  <oj-chart id="barChart" type="bar" series="[[timeSeriesValue]]" groups="[[timeGroupsValue]]"
+                  animation-on-display="auto" animation-on-data-change="auto" hidden-categories="{{hiddenCategoriesValue}}"
+                  legend.rendered="off" style="width:100%;height:150px;float:left;">
+                </oj-chart>
+                </div>
+              </div>
+              <div class="oj-flex">
+                  <div class="oj-flex-item">
+                  <h2>Abandon Cart Recovery Rate by Product Category Widget </h2>
+                  <br>
+                  <oj-status-meter-gauge 
+                  id="gauge5"  tooltip.renderer="[[getTooltip]]" min="0" max="100" thresholds="[[thresholdValues]]"
+                  value="{{value5}}" orientation="vertical" metric-label.rendered="on" plot-area.rendered="on"
+                  indicator-size="0.5"  threshold-display="currentOnly" class="vertical-status-meter-sample">
+                </oj-status-meter-gauge>
+                </div>
+              </div>
+              <div class="oj-flex">
+                  <div class="oj-flex-item">
+                  <h2>Orders by Know & Unknown Customers Widget </h2>
+                  <br>
+                  <oj-chart id="lineChart"
+                  type="line"
+                  series="[[lineSeriesValue]]"
+                  groups="[[lineGroupsValue]]"
+                  animation-on-display="auto"
+                  animation-on-data-change="auto"
+                  orientation="[[orientationValue]]"
+                  hover-behavior="dim"
+                  style="max-width:500px;width:100%;height:350px;">
+              </oj-chart>
+                </div>
+              </div>
+
+              <div class="oj-flex">
+                  <div class="oj-flex-item">
+                  <h1>Top Segment by Conversion Rate Widget</h1>
+                  <br>
+                  not available yet                          
+                </div>
+              </div>
+              <div class="oj-flex">
+                  <div class="oj-flex-item">
+              <h2>Revenue Widget </h2>
+              <oj-chart id="barChart"
+              type="bar" 
+              series="[[barSeriesValue]]"
+              groups="[[barGroupsValue]]" 
+              stack="on"
+              y-axis.min="0" y-axis.max="1" y-axis.tick-label.converter="[[yConverter]]"
+              animation-on-display="auto"
+              animation-on-data-change="auto"
+              value-formats.y.converter="[[yConverter]]"
+              style="width:50%;height:250px;float:left;">
+         </oj-chart>
+            
+            </div>
+          </div>
+            </div>
+        </div>
+     
+
+
+    </div>
+
+</div>
+
