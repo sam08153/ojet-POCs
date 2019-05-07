@@ -91,7 +91,11 @@
                   <div class="oj-flex-item">
                   <h2>Abandon Cart Recovery Rate by Product Category Widget </h2>
                   <br>
-                  not available
+                  <oj-status-meter-gauge 
+                  id="gauge5"  tooltip.renderer="[[getTooltip]]" min="0" max="100" thresholds="[[thresholdValues]]"
+                  value="{{value5}}" orientation="vertical" metric-label.rendered="on" plot-area.rendered="on"
+                  indicator-size="0.5"  threshold-display="currentOnly" class="vertical-status-meter-sample">
+                </oj-status-meter-gauge>
                 </div>
               </div>
               <div class="oj-flex">
@@ -112,85 +116,29 @@
               </div>
 
               <div class="oj-flex">
-                <div class="oj-flex-item">
-                    <h1>Top Segment by Conversion Rate Widget</h1>
-                    <br>
-                    not available yet                          
+                  <div class="oj-flex-item">
+                  <h1>Top Segment by Conversion Rate Widget</h1>
+                  <br>
+                  not available yet                          
                 </div>
               </div>
               <div class="oj-flex">
-                <div class="oj-flex-item">
-                  <h2>Revenue Widget </h2>
-                    <oj-chart id="barChart" type="bar"  series="[[barSeriesValue]]"  groups="[[barGroupsValue]]" 
-                    stack="on" y-axis.min="0" y-axis.max="1" y-axis.tick-label.converter="[[yConverter]]"
-                    animation-on-display="auto"  animation-on-data-change="auto"  value-formats.y.converter="[[yConverter]]"
-                    style="width:50%;height:250px;float:left;">
-                    </oj-chart>
-                </div>
-              </div>
+                  <div class="oj-flex-item">
+              <h2>Revenue Widget </h2>
+              <oj-chart id="barChart"
+              type="bar" 
+              series="[[barSeriesValue]]"
+              groups="[[barGroupsValue]]" 
+              stack="on"
+              y-axis.min="0" y-axis.max="1" y-axis.tick-label.converter="[[yConverter]]"
+              animation-on-display="auto"
+              animation-on-data-change="auto"
+              value-formats.y.converter="[[yConverter]]"
+              style="width:50%;height:250px;float:left;">
+         </oj-chart>
             
-              <div class="oj-flex">      
-                <div class="oj-flex-item">
-                    <h2>Average Revenue By Loyalty Widget</h2>
-                    <br>
-                  not avaible
-              </div>
             </div>
-            
-            <div class="oj-flex">      
-              <div class="oj-flex-item">
-                  <h2> Recent Campaigns  Widget </h2>
-                  <br>
-                 
-                  <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
-        
-                      <oj-table id='table' aria-label='Sales Representative Table'
-                                                      data='[[dataprovider]]' 
-                                                      columns='{{columnArray}}'
-                                                      style='width: 100%;'>
-                      </oj-table>
-                     
-                      <script type="text/html" id="emp_name">
-                           <td data-bind="text: $context.row.FirstName + ' ' + $context.row.LastName">
-                           </td>
-                      </script>
-                      
-                     
-                      <script type="text/html" id="target">
-                        <td>
-                            <oj-input-text label-hint="Revenue"
-                            value="{{TargetComplete}}" name="revenue"
-                            data-bind="attr: {value: $context.row.TargetComplete}"
-                            converter= '{
-                            "type":"number",
-                            "options": {"style": "currency", "currency": "USD", "currencyDisplay": "symbol"}}'>
-                       </oj-input-text>
-                          <oj-status-meter-gauge  
-                          id='gauge4'
-                          legend='{"rendered": "off"}'
-                            value='{{$context.row.TargetComplete}}'
-                            thresholds='{{[{max: 33}, {max: 67}, {}]}}'
-                            min='0' 
-                            max='100' 
-                            readonly
-                            metric-label.rendered='off'
-                            plot-area.rendered='on'
-                            class='horizontal-status-meter-sample'
-                            converter= '{
-                              "type":"number",
-                              "options": {"style": "currency", "currency": "USD", "currencyDisplay": "symbol"}}'
-                            >
-                          </oj-status-meter-gauge >
-                        </td>
-            
-                      </script>
-              
-                      
-                    </div>
-                    
-              </div>
-            </div>
-
+          </div>
             </div>
         </div>
      
