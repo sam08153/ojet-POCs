@@ -6,8 +6,9 @@
 /*
  * Your dashboard ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery',  'ojs/ojfilepicker', 'ojs/ojinputtext', 'ojs/ojchart','ojs/ojtreemap', 'ojs/ojgauge'],
- function(oj, ko, $) {
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojarraydataprovider', 'ojs/ojknockout','ojs/ojfilepicker', 'ojs/ojinputtext', 'ojs/ojchart','ojs/ojtreemap', 'ojs/ojgauge',
+'ojs/ojpictochart',  'ojs/ojtable', 'ojs/ojbutton'],
+ function(oj, ko, $, ArrayDataProvider) {
   
     function DashboardViewModel() {
       var self = this;
@@ -256,7 +257,64 @@ define(['ojs/ojcore', 'knockout', 'jquery',  'ojs/ojfilepicker', 'ojs/ojinputtex
 
 
 
+    var colorHandler = new oj.ColorAttributeGroupHandler();
+        this.barColor = colorHandler.getValue('barColor');
+        this.rangeBarColor = colorHandler.getValue('rangeBarColor');
+        this.lineColor = colorHandler.getValue('lineColor');
+        this.lineWithAreaColor = colorHandler.getValue('lineWithAreaColor');
+        this.areaColor = colorHandler.getValue('areaColor');
+        this.rangeAreaColor = colorHandler.getValue('rangeAreaColor');
+        
+        /* chart data */
+        var values = [5, 8, 2, 7, 0, 9, 2, 3, 4, 2];
+        
+        this.sparkValues = ko.observableArray(values);
+        
+        var rangeValues = [{low: 5, high: 9},
+                           {low: 3, high: 7},
+                           {low: 3, high: 8},
+                           {low: 5, high: 10},
+                           {low: 7, high: 14},
+                           {low: 8, high: 13},
+                           {low: 6, high: 11},
+                           {low: 4, high: 9},
+                           {low: 1, high: 5},
+                           {low: 2, high: 8}];
+        
+        this.sparkRangeValues = ko.observableArray(rangeValues);
 
+
+//
+
+var deptArray = [{EmployeeId: 5, Photo: 'images/dvt/1.png',FirstName: 'Amy', LastName: 'Bartlet', Revenue: 100000, Rating: 1, TargetComplete: 20, TargetIncomplete: 80},
+{EmployeeId: 10, Photo: 'images/dvt/10.png', FirstName: 'Andy', LastName: 'Jones', Revenue: 200000, Rating: 2, TargetComplete: 40, TargetIncomplete: 60},
+{EmployeeId: 20, Photo: 'images/dvt/11.png', FirstName: 'Andrew', LastName: 'Bugsy', Revenue: 130000, Rating: 3, TargetComplete: 10, TargetIncomplete: 90},
+{EmployeeId: 30, Photo: 'images/dvt/2.png', FirstName: 'Annette', LastName: 'Barnes', Revenue: 110000, Rating: 4, TargetComplete: 30, TargetIncomplete: 70},
+{EmployeeId: 40, Photo: 'images/dvt/12.png', FirstName: 'Bob', LastName: 'Jones', Revenue: 230000, Rating: 5, TargetComplete: 70, TargetIncomplete: 30}];
+self.dataprovider = new ArrayDataProvider(deptArray, {keyAttributes: 'EmployeeId'});
+
+
+
+self.columnArray = [
+            {"headerText": "Employee Name", 
+             "sortable": "enabled", 
+             "renderer": oj.KnockoutTemplateUtils.getRenderer("emp_name", true), 
+             "sortProperty": "FirstName"},
+            {"headerText": "Sales Target Achievement", 
+             "field": "TargetAchievement",
+             "sortable": "disabled",
+             "renderer": oj.KnockoutTemplateUtils.getRenderer("target", true)},
+             {"headerText": "Sales Target Achievement", 
+             "field": "TargetAchievement",
+             "sortable": "disabled",
+             "renderer": oj.KnockoutTemplateUtils.getRenderer("target", true)}];
+
+             this.value4 = ko.observable(60);
+             this.thresholdValues = [{max: 33}, {max: 67}, {}];
+
+
+
+             
       /**
        * Optional ViewModel method invoked after the View is inserted into the
        * document DOM.  The application can put logic that requires the DOM being
@@ -268,6 +326,7 @@ define(['ojs/ojcore', 'knockout', 'jquery',  'ojs/ojfilepicker', 'ojs/ojinputtex
       self.connected = function() {
         // Implement if needed
         $('#text-area').hide();
+        
       };
       
       // Below are a set of the ViewModel methods invoked by the oj-module component.
@@ -293,6 +352,7 @@ define(['ojs/ojcore', 'knockout', 'jquery',  'ojs/ojfilepicker', 'ojs/ojinputtex
        */
       self.transitionCompleted = function() {
         // Implement if needed
+        
       };
     }
 
