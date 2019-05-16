@@ -219,6 +219,21 @@
         "path": "libs/require-css/css.min.js",
         "cdnPath": "require-css/css.min"
       }
+    },
+
+    "d3": {
+      "cdn": "3rdparty",
+      "cwd": "node_modules/d3/dist",
+      "debug": {
+        "src":  ["d3.js", "d3.min.js", "d3.node.js"],
+        "path": "libs/d3/d3.min.js",
+        "cdnPath": "d3/d3.min"
+      },
+      "release": {
+        "src": ["d3.min.js", "d3.js", "d3.node.js"],
+        "path": "libs/d3/d3.min.js",
+        "cdnPath": "d3/d3.min"
+      }
     }
   }
 } 

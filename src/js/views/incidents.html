@@ -7,27 +7,25 @@
         <div>
             To change the content of this section, you will make edits to the incidents.html file located in the /js/views folder.
       
-        <div id="sampleDemo" style="" class="demo-padding demo-container">
-            <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
-              
-              <div id='chart-container'>
-                  <oj-chart id="areaChart" 
-                          type="area" 
-                          orientation="[[orientationValue]]" 
-                          stack="[[stackValue]]"
-                          series="[[areaSeriesValue]]"
-                          groups="[[areaGroupsValue]]"
-                          animation-on-display="auto"
-                          animation-on-data-change="auto" 
-                          hover-behavior="dim"
-                          style="max-width:500px;width:100%;height:350px;"></oj-chart>
-                  <oj-toolbar id="myToolbar" aria-label="Chart Display Options Toolbar" aria-controls="areaChart"
-                              style="max-width:500px;width:100%;">
-                      <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
-                  </oj-toolbar>
-              </div>
-      
-            </div>
-            </div>
+
+           
+        
           </div>
-      </div>
+          <div class="oj-flex-item" style="max-width:175px">
+                <oj-status-meter-gauge 
+                  id="gauge5" 
+                  tooltip.renderer="[[getTooltip]]"
+                  min="0" 
+                  max="100" 
+                  thresholds="[[thresholdValues]]"
+                  value="{{value5}}"
+                  orientation="vertical"
+                  metric-label.rendered="on"
+                  plot-area.rendered="on"
+                  indicator-size="0.5" 
+                  threshold-display="currentOnly"
+                  class="vertical-status-meter-sample">
+                </oj-status-meter-gauge>
+                Current threshold displayed in plot area
+            </div>
+</div>

@@ -58,8 +58,14 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojarraydataprovider', 'ojs/ojkn
       self.axisValue = ko.observable('xAxis');
       
       /* chart data */
-      var areaSeries = [{name : "Series 1", items : [74, 42, 70, 46, 34, 22, 30, 32]}];
-  
+      var arr = [];
+      for (var i=0, t=40; i<1000; i++) {
+        arr.push(Math.round(Math.random() * 20))
+      }
+      //document.write(arr);
+      var areaSeries = [{name : "Series 1", items : arr}];
+      console.log(arr)
+      
       var areaGroups = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"];
       
       this.areaSeriesValuea = ko.observableArray(areaSeries);

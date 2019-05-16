@@ -5,3 +5,11 @@
     Description:
         This is where any of your application specific styles should be included
 */
+.vertical-status-meter-sample
+{
+  margin-top:5px;
+  margin-bottom:5px;
+  margin-right:5px;
+  width:21px;
+  height:200px;
+}
